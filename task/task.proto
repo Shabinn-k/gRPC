@@ -1,0 +1,21 @@
+syntax ="proto3";
+
+package task;
+
+option go_package ="/pb";
+
+service TaskService{
+    rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse);
+}
+
+message CreateTaskRequest{
+    string Title =1 ;
+    string description = 2;
+}
+
+message CreateTaskResponse{
+    int32 id =1;
+    string Title = 2;
+    string description = 3;
+}
+
