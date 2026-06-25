@@ -56,14 +56,11 @@ func (s *server) ValidateToken(ctx context.Context, req *pb.TokenRequest) (*pb.T
 }
 
 func main() {
-	// Initialize repository
 	userRepo := repository.NewUserRepository()
 
-	// Create gRPC server
 	grpcServer := grpc.NewServer()
 	pb.RegisterUserServiceServer(grpcServer, NewServer(userRepo))
 
-	// Start listening
 	listener, err := net.Listen("tcp", ":50051")
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)

@@ -21,7 +21,6 @@ func NewUserRepository() *UserRepository {
 		users: make(map[int32]*User),
 	}
 
-	// Add test users
 	repo.users[1] = &User{
 		ID:       1,
 		Email:    "user1@example.com",
